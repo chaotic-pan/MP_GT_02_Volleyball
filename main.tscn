@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://0mlmd6a06wjc"]
+
+[ext_resource type="Texture2D" uid="uid://c4d1by61fwnue" path="res://beach.jpg" id="1_kp5nc"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1131.0
+offset_bottom = 707.0
+texture = ExtResource("1_kp5nc")
