@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://eq1o0cibq3gd"
-path="res://.godot/imported/Axolotl_Token.png-eaa63f4fbc07de1983b2c0be542350f8.ctex"
+uid="uid://d3nin24n3pr8t"
+path="res://.godot/imported/sonic2.png-845f3e50390d887a58d0271a8e6c3466.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Axolotl_Token.png"
-dest_files=["res://.godot/imported/Axolotl_Token.png-eaa63f4fbc07de1983b2c0be542350f8.ctex"]
+source_file="res://snic/sonic2.png"
+dest_files=["res://.godot/imported/sonic2.png-845f3e50390d887a58d0271a8e6c3466.ctex"]
 
 [params]
 

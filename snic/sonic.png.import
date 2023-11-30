@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bbaq1fwgagptj"
-path="res://.godot/imported/knuckles.png-9ddc9d74b233aa4524d3672f6c3abc50.ctex"
+uid="uid://dhc2jijuf17g3"
+path="res://.godot/imported/sonic.png-30bb229e00651287a06b8824e4cf9084.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://knuckles.png"
-dest_files=["res://.godot/imported/knuckles.png-9ddc9d74b233aa4524d3672f6c3abc50.ctex"]
+source_file="res://snic/sonic.png"
+dest_files=["res://.godot/imported/sonic.png-30bb229e00651287a06b8824e4cf9084.ctex"]
 
 [params]
 

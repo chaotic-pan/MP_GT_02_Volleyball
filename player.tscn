@@ -1,7 +1,7 @@
-[gd_scene load_steps=26 format=3 uid="uid://e767urkelb3m"]
+[gd_scene load_steps=27 format=3 uid="uid://e767urkelb3m"]
 
 [ext_resource type="Texture2D" uid="uid://wcx2s3tnh35y" path="res://knokels/ball1.png" id="1_0cech"]
-[ext_resource type="Script" path="res://AnimatedSprite2D.gd" id="1_b240h"]
+[ext_resource type="Script" path="res://playerScript.gd" id="1_qq3vx"]
 [ext_resource type="Texture2D" uid="uid://bc8v3su5ibh55" path="res://knokels/ball2.png" id="2_ctl2n"]
 [ext_resource type="Texture2D" uid="uid://bn52wyp5ufcd7" path="res://knokels/ball3.png" id="3_cj741"]
 [ext_resource type="Texture2D" uid="uid://bqq8ek6m5wpt6" path="res://knokels/ball4.png" id="4_5kt3f"]
@@ -25,28 +25,8 @@
 [ext_resource type="Texture2D" uid="uid://d2pqj2pr53a7a" path="res://snic/stand6.png" id="22_efm0a"]
 [ext_resource type="Texture2D" uid="uid://c3tl1ptaiecun" path="res://snic/stand7.png" id="23_22oh6"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_6ehn0"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_xotfq"]
 animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("1_0cech")
-}, {
-"duration": 1.0,
-"texture": ExtResource("2_ctl2n")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_cj741")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_5kt3f")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_nqkdr")
-}],
-"loop": true,
-"name": &"ball_knokels",
-"speed": 25.0
-}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("6_r3a1l")
@@ -64,31 +44,8 @@ animations = [{
 "texture": ExtResource("10_3up11")
 }],
 "loop": true,
-"name": &"ball_snic",
+"name": &"P1_ball",
 "speed": 25.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("11_3q5bs")
-}, {
-"duration": 1.0,
-"texture": ExtResource("12_w571o")
-}, {
-"duration": 1.0,
-"texture": ExtResource("13_oy30r")
-}, {
-"duration": 1.0,
-"texture": ExtResource("14_1e6nf")
-}, {
-"duration": 1.0,
-"texture": ExtResource("15_mrep2")
-}, {
-"duration": 1.0,
-"texture": ExtResource("16_0nkxq")
-}],
-"loop": true,
-"name": &"stand_knokels",
-"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -113,14 +70,64 @@ animations = [{
 "texture": ExtResource("23_22oh6")
 }],
 "loop": true,
-"name": &"stand_snic",
+"name": &"P1_stand",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_0cech")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_ctl2n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_cj741")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_5kt3f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_nqkdr")
+}],
+"loop": true,
+"name": &"P2_ball",
+"speed": 25.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_3q5bs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_w571o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_oy30r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_1e6nf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_mrep2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_0nkxq")
+}],
+"loop": true,
+"name": &"P2_stand",
 "speed": 10.0
 }]
 
-[node name="Player1" type="AnimatedSprite2D"]
-position = Vector2(-2, 10)
-scale = Vector2(0.368, 0.38)
-sprite_frames = SubResource("SpriteFrames_6ehn0")
-animation = &"stand_knokels"
-frame_progress = 0.685292
-script = ExtResource("1_b240h")
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nhp4e"]
+radius = 32.0
+height = 123.0
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_qq3vx")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_xotfq")
+animation = &"P1_stand"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_nhp4e")
