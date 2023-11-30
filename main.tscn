@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://0mlmd6a06wjc"]
+[gd_scene load_steps=3 format=3 uid="uid://0mlmd6a06wjc"]
 
 [ext_resource type="Texture2D" uid="uid://c4d1by61fwnue" path="res://beach.jpg" id="1_kp5nc"]
+[ext_resource type="PackedScene" uid="uid://e767urkelb3m" path="res://player.tscn" id="2_j4w6e"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -8,3 +9,10 @@
 offset_right = 1131.0
 offset_bottom = 707.0
 texture = ExtResource("1_kp5nc")
+
+[node name="Player1" parent="." instance=ExtResource("2_j4w6e")]
+position = Vector2(903, 475)
+
+[node name="Player2" parent="." instance=ExtResource("2_j4w6e")]
+position = Vector2(198, 481)
+player = 2
