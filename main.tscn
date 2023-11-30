@@ -10,9 +10,14 @@ offset_right = 1131.0
 offset_bottom = 707.0
 texture = ExtResource("1_kp5nc")
 
-[node name="Player1" parent="." instance=ExtResource("2_j4w6e")]
-position = Vector2(903, 475)
-
-[node name="Player2" parent="." instance=ExtResource("2_j4w6e")]
+[node name="Snic" parent="." instance=ExtResource("2_j4w6e")]
 position = Vector2(198, 481)
+scale = Vector2(3, 3)
+animation = &"stand_snic"
+frame_progress = 0.0
+
+[node name="Knokels" parent="." instance=ExtResource("2_j4w6e")]
+position = Vector2(903, 475)
+scale = Vector2(3, 3)
+frame_progress = 0.0
 player = 2

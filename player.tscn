@@ -1,21 +1,126 @@
-[gd_scene load_steps=4 format=3 uid="uid://e767urkelb3m"]
+[gd_scene load_steps=26 format=3 uid="uid://e767urkelb3m"]
 
-[ext_resource type="Texture2D" uid="uid://eq1o0cibq3gd" path="res://Axolotl_Token.png" id="1_7vglp"]
+[ext_resource type="Texture2D" uid="uid://wcx2s3tnh35y" path="res://knokels/ball1.png" id="1_0cech"]
 [ext_resource type="Script" path="res://AnimatedSprite2D.gd" id="1_b240h"]
+[ext_resource type="Texture2D" uid="uid://bc8v3su5ibh55" path="res://knokels/ball2.png" id="2_ctl2n"]
+[ext_resource type="Texture2D" uid="uid://bn52wyp5ufcd7" path="res://knokels/ball3.png" id="3_cj741"]
+[ext_resource type="Texture2D" uid="uid://bqq8ek6m5wpt6" path="res://knokels/ball4.png" id="4_5kt3f"]
+[ext_resource type="Texture2D" uid="uid://cy2db623k6yqq" path="res://knokels/ball5.png" id="5_nqkdr"]
+[ext_resource type="Texture2D" uid="uid://co0voepbyvo8a" path="res://snic/ball1.png" id="6_r3a1l"]
+[ext_resource type="Texture2D" uid="uid://dj2a231271iwf" path="res://snic/ball2.png" id="7_dqk1g"]
+[ext_resource type="Texture2D" uid="uid://b0xgm52oh4vos" path="res://snic/ball3.png" id="8_3yd5d"]
+[ext_resource type="Texture2D" uid="uid://b686ho34okgsk" path="res://snic/ball4.png" id="9_lp7j4"]
+[ext_resource type="Texture2D" uid="uid://cxvouu8a6t7ii" path="res://snic/ball5.png" id="10_3up11"]
+[ext_resource type="Texture2D" uid="uid://byoxbrw7cjqda" path="res://knokels/stand1.png" id="11_3q5bs"]
+[ext_resource type="Texture2D" uid="uid://bdmknyuxjockd" path="res://knokels/stand2.png" id="12_w571o"]
+[ext_resource type="Texture2D" uid="uid://7iimasrkxtqf" path="res://knokels/stand3.png" id="13_oy30r"]
+[ext_resource type="Texture2D" uid="uid://bg88sio0ltynn" path="res://knokels/stand4.png" id="14_1e6nf"]
+[ext_resource type="Texture2D" uid="uid://dqvoykubywkjq" path="res://knokels/stand5.png" id="15_mrep2"]
+[ext_resource type="Texture2D" uid="uid://brcgwu524nl2k" path="res://knokels/stand6.png" id="16_0nkxq"]
+[ext_resource type="Texture2D" uid="uid://cwgytad1hjd27" path="res://snic/stand1.png" id="17_30kaw"]
+[ext_resource type="Texture2D" uid="uid://b43xbdxdxwx2r" path="res://snic/stand2.png" id="18_eu0t1"]
+[ext_resource type="Texture2D" uid="uid://cs804vsbalo4d" path="res://snic/stand3.png" id="19_5ek3q"]
+[ext_resource type="Texture2D" uid="uid://bl5atkx4e7rpg" path="res://snic/stand4.png" id="20_v6ym3"]
+[ext_resource type="Texture2D" uid="uid://c3hwybtfrs8l6" path="res://snic/stand5.png" id="21_y8gm3"]
+[ext_resource type="Texture2D" uid="uid://d2pqj2pr53a7a" path="res://snic/stand6.png" id="22_efm0a"]
+[ext_resource type="Texture2D" uid="uid://c3tl1ptaiecun" path="res://snic/stand7.png" id="23_22oh6"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_6ehn0"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_7vglp")
+"texture": ExtResource("1_0cech")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_ctl2n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_cj741")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_5kt3f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_nqkdr")
 }],
 "loop": true,
-"name": &"default",
-"speed": 5.0
+"name": &"ball_knokels",
+"speed": 25.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_r3a1l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_dqk1g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_3yd5d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_lp7j4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_3up11")
+}],
+"loop": true,
+"name": &"ball_snic",
+"speed": 25.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_3q5bs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_w571o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_oy30r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_1e6nf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_mrep2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_0nkxq")
+}],
+"loop": true,
+"name": &"stand_knokels",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("17_30kaw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_eu0t1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_5ek3q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_v6ym3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_y8gm3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_efm0a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_22oh6")
+}],
+"loop": true,
+"name": &"stand_snic",
+"speed": 10.0
 }]
 
 [node name="Player1" type="AnimatedSprite2D"]
 position = Vector2(-2, 10)
 scale = Vector2(0.368, 0.38)
 sprite_frames = SubResource("SpriteFrames_6ehn0")
+animation = &"stand_knokels"
+frame_progress = 0.685292
 script = ExtResource("1_b240h")
