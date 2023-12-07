@@ -1,13 +1,28 @@
-[gd_scene load_steps=5 format=3 uid="uid://0mlmd6a06wjc"]
+[gd_scene load_steps=11 format=3 uid="uid://0mlmd6a06wjc"]
 
 [ext_resource type="Texture2D" uid="uid://c4d1by61fwnue" path="res://Assets/beach.jpg" id="1_beft5"]
 [ext_resource type="PackedScene" uid="uid://e767urkelb3m" path="res://Scenes/player.tscn" id="2_ny044"]
+[ext_resource type="PackedScene" uid="uid://blk7a0rkua26i" path="res://Scenes/Ball.tscn" id="3_0bu6c"]
+[ext_resource type="PackedScene" uid="uid://bc7g0dltyr3ek" path="res://Scenes/ui.tscn" id="4_wlu0f"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_4nlnl"]
+normal = Vector2(1, 0)
+distance = -64.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_cjm5t"]
+normal = Vector2(-1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_8omdk"]
+normal = Vector2(0, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nvk21"]
-size = Vector2(168.69, 128)
+size = Vector2(84.5237, 128)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rhjt0"]
-size = Vector2(9.52382, 208)
+size = Vector2(2.38094, 280)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xweg2"]
+size = Vector2(16, 592)
 
 [node name="Node2D" type="Node2D"]
 
@@ -16,6 +31,45 @@ offset_right = 1131.0
 offset_bottom = 707.0
 texture = ExtResource("1_beft5")
 
+[node name="bounds" type="StaticBody2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="bounds"]
+offset_top = 592.0
+offset_right = 1131.0
+offset_bottom = 720.0
+color = Color(0, 0.372549, 0.372549, 0.164706)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bounds"]
+position = Vector2(64, 376)
+scale = Vector2(1, 4)
+shape = SubResource("WorldBoundaryShape2D_4nlnl")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="bounds"]
+position = Vector2(1131, 376)
+scale = Vector2(1, 4)
+shape = SubResource("WorldBoundaryShape2D_cjm5t")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="bounds"]
+position = Vector2(576, 0)
+scale = Vector2(6, 1)
+shape = SubResource("WorldBoundaryShape2D_8omdk")
+
+[node name="floor1" type="StaticBody2D" parent="."]
+
+[node name="P2Side" type="CollisionShape2D" parent="floor1"]
+position = Vector2(284, 656)
+scale = Vector2(6.72, 1)
+shape = SubResource("RectangleShape2D_nvk21")
+debug_color = Color(0.0823529, 0.52549, 1, 0.419608)
+
+[node name="floor2" type="StaticBody2D" parent="."]
+
+[node name="P2Side" type="CollisionShape2D" parent="floor2"]
+position = Vector2(848, 656)
+scale = Vector2(6.72, 1)
+shape = SubResource("RectangleShape2D_nvk21")
+debug_color = Color(0.94902, 0.227451, 0, 0.419608)
+
 [node name="Snic" parent="." instance=ExtResource("2_ny044")]
 position = Vector2(198, 481)
 
@@ -23,32 +77,37 @@ position = Vector2(198, 481)
 position = Vector2(903, 475)
 player = 2
 
-[node name="floor" type="StaticBody2D" parent="."]
+[node name="ballNet" type="StaticBody2D" parent="."]
+collision_layer = 4
+collision_mask = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="floor"]
-position = Vector2(566.799, 656)
+[node name="ColorRect" type="ColorRect" parent="ballNet"]
+offset_left = 560.0
+offset_top = 312.0
+offset_right = 564.0
+offset_bottom = 403.0
+scale = Vector2(4.01021, 3.08656)
+size_flags_horizontal = 0
+size_flags_vertical = 0
+color = Color(0.505882, 0.498039, 0.505882, 0.490196)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ballNet"]
+position = Vector2(568, 452)
 scale = Vector2(6.72, 1)
-shape = SubResource("RectangleShape2D_nvk21")
+shape = SubResource("RectangleShape2D_rhjt0")
 
-[node name="ColorRect" type="ColorRect" parent="floor"]
-offset_top = 592.0
-offset_right = 1131.0
-offset_bottom = 720.0
-color = Color(0, 0.372549, 0.372549, 0.164706)
-
-[node name="net" type="StaticBody2D" parent="."]
+[node name="playerNet" type="StaticBody2D" parent="."]
 collision_layer = 2
 collision_mask = 2
 
-[node name="ColorRect" type="ColorRect" parent="net"]
-offset_left = 504.0
-offset_top = 384.0
-offset_right = 520.0
-offset_bottom = 475.0
-scale = Vector2(4.01021, 3.08656)
-color = Color(0.505882, 0.498039, 0.505882, 0.490196)
+[node name="net" type="CollisionShape2D" parent="playerNet"]
+position = Vector2(568, 296)
+shape = SubResource("RectangleShape2D_xweg2")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="net"]
-position = Vector2(536, 488)
-scale = Vector2(6.72, 1)
-shape = SubResource("RectangleShape2D_rhjt0")
+[node name="Ball" parent="." instance=ExtResource("3_0bu6c")]
+position = Vector2(216, 192)
+
+[node name="UI" parent="." instance=ExtResource("4_wlu0f")]
+
+[connection signal="P1Hit" from="Ball" to="UI" method="P1Hit"]
+[connection signal="P2Hit" from="Ball" to="UI" method="P2Hit"]

@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://blk7a0rkua26i"]
+
+[ext_resource type="Script" path="res://Scripts/Ball.gd" id="1_ptjqw"]
+[ext_resource type="Texture2D" uid="uid://o61ln4mee4pa" path="res://Assets/Volleyball-34.png" id="1_vmrnp"]
+
+[sub_resource type="PhysicsMaterial" id="1"]
+friction = 0.0
+bounce = 1.0
+
+[sub_resource type="CircleShape2D" id="2"]
+radius = 37.1452
+
+[node name="Ball" type="RigidBody2D"]
+collision_mask = 5
+mass = 0.1
+physics_material_override = SubResource("1")
+gravity_scale = 0.5
+script = ExtResource("1_ptjqw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.16, 0.16)
+texture = ExtResource("1_vmrnp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("2")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
