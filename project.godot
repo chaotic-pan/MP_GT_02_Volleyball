@@ -10,8 +10,8 @@ config_version=5
 
 [application]
 
-config/name="Mp Gt 02 Volleyball"
-run/main_scene="res://main.tscn"
+config/name="MP_GT_02_Volleyball"
+run/main_scene="res://Scenes/main.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 
 [display]

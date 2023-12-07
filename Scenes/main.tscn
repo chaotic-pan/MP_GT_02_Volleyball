@@ -1,0 +1,54 @@
+[gd_scene load_steps=5 format=3 uid="uid://0mlmd6a06wjc"]
+
+[ext_resource type="Texture2D" uid="uid://c4d1by61fwnue" path="res://Assets/beach.jpg" id="1_beft5"]
+[ext_resource type="PackedScene" uid="uid://e767urkelb3m" path="res://Scenes/player.tscn" id="2_ny044"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nvk21"]
+size = Vector2(168.69, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rhjt0"]
+size = Vector2(9.52382, 208)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1131.0
+offset_bottom = 707.0
+texture = ExtResource("1_beft5")
+
+[node name="Snic" parent="." instance=ExtResource("2_ny044")]
+position = Vector2(198, 481)
+
+[node name="Knokels" parent="." instance=ExtResource("2_ny044")]
+position = Vector2(903, 475)
+player = 2
+
+[node name="floor" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="floor"]
+position = Vector2(566.799, 656)
+scale = Vector2(6.72, 1)
+shape = SubResource("RectangleShape2D_nvk21")
+
+[node name="ColorRect" type="ColorRect" parent="floor"]
+offset_top = 592.0
+offset_right = 1131.0
+offset_bottom = 720.0
+color = Color(0, 0.372549, 0.372549, 0.164706)
+
+[node name="net" type="StaticBody2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="ColorRect" type="ColorRect" parent="net"]
+offset_left = 504.0
+offset_top = 384.0
+offset_right = 520.0
+offset_bottom = 475.0
+scale = Vector2(4.01021, 3.08656)
+color = Color(0.505882, 0.498039, 0.505882, 0.490196)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="net"]
+position = Vector2(536, 488)
+scale = Vector2(6.72, 1)
+shape = SubResource("RectangleShape2D_rhjt0")
