@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://o61ln4mee4pa" path="res://Assets/Volleyball-34.png" id="1_vmrnp"]
 
 [sub_resource type="PhysicsMaterial" id="1"]
-friction = 0.0
+friction = 0.5
 bounce = 1.0
 
 [sub_resource type="CircleShape2D" id="2"]

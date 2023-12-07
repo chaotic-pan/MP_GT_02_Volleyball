@@ -17,7 +17,7 @@ func _process(delta):
 func _on_body_entered(body):
 	if body.name.contains("floor1"):
 		P1Hit.emit()
-		printerr("1")
 	if body.name.contains("floor2"):
 		P2Hit.emit()
-		printerr("2")
+	if body.name.contains("Player"):
+		linear_velocity*=Vector2(1.5,1.5)
