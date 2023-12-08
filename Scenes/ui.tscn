@@ -1,25 +1,40 @@
-[gd_scene load_steps=2 format=3 uid="uid://bc7g0dltyr3ek"]
+[gd_scene load_steps=4 format=3 uid="uid://bc7g0dltyr3ek"]
 
 [ext_resource type="Script" path="res://Scripts/ui.gd" id="1_s0d5a"]
+[ext_resource type="Texture2D" uid="uid://0brojlkn5j20" path="res://Assets/ChaoL.png" id="2_lxylb"]
+[ext_resource type="Texture2D" uid="uid://c1iwb0fwodlkw" path="res://Assets/ChaoR.png" id="3_roe6t"]
 
 [node name="UI" type="Node2D"]
 script = ExtResource("1_s0d5a")
 
-[node name="Label1" type="Label" parent="."]
-offset_left = 8.0
-offset_top = 8.0
-offset_right = 72.0
-offset_bottom = 72.0
-theme_override_colors/font_color = Color(0.192157, 0.423529, 1, 1)
-theme_override_font_sizes/font_size = 30
-text = "0"
+[node name="Sprite2D1" type="Sprite2D" parent="."]
+position = Vector2(80, 75)
+scale = Vector2(0.532129, 0.532129)
+texture = ExtResource("2_lxylb")
 
-[node name="Label2" type="Label" parent="."]
-offset_left = 1056.0
-offset_top = 8.0
-offset_right = 1120.0
-offset_bottom = 72.0
-theme_override_colors/font_color = Color(1, 0.396078, 0.329412, 1)
-theme_override_font_sizes/font_size = 30
+[node name="Label1" type="Label" parent="Sprite2D1"]
+offset_left = -35.2358
+offset_top = -114.164
+offset_right = 114.764
+offset_bottom = -9.16414
+theme_override_colors/font_color = Color(0.192157, 0.423529, 1, 1)
+theme_override_font_sizes/font_size = 50
 text = "0"
-horizontal_alignment = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(1056, 80)
+scale = Vector2(0.532129, 0.532129)
+texture = ExtResource("3_roe6t")
+
+[node name="Label2" type="Label" parent="Sprite2D2"]
+offset_left = -116.043
+offset_top = -114.164
+offset_right = 33.9566
+offset_bottom = -9.16414
+theme_override_colors/font_color = Color(1, 0.396078, 0.329412, 1)
+theme_override_font_sizes/font_size = 50
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1

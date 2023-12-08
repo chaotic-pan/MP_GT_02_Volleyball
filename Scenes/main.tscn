@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://0mlmd6a06wjc"]
+[gd_scene load_steps=14 format=3 uid="uid://0mlmd6a06wjc"]
 
 [ext_resource type="Texture2D" uid="uid://c4d1by61fwnue" path="res://Assets/beach.jpg" id="1_beft5"]
 [ext_resource type="PackedScene" uid="uid://e767urkelb3m" path="res://Scenes/player.tscn" id="2_ny044"]
 [ext_resource type="PackedScene" uid="uid://blk7a0rkua26i" path="res://Scenes/Ball.tscn" id="3_0bu6c"]
 [ext_resource type="PackedScene" uid="uid://bc7g0dltyr3ek" path="res://Scenes/ui.tscn" id="4_wlu0f"]
+[ext_resource type="AudioStream" uid="uid://b0s6h80xq3m4d" path="res://Assets/onlymp3.to - Savannah Citadel Day Sonic Unleashed OST -mJMtNOj4PaE-192k-1702045885.mp3" id="5_1cma0"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_4nlnl"]
 normal = Vector2(1, 0)
@@ -23,6 +24,28 @@ size = Vector2(2.38094, 280)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xweg2"]
 size = Vector2(16, 592)
+
+[sub_resource type="Animation" id="Animation_ufl56"]
+resource_name = "chaos"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UI:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -5), Vector2(0, 5), Vector2(0, -5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_l538o"]
+_data = {
+"chaos": SubResource("Animation_ufl56")
+}
 
 [node name="Node2D" type="Node2D"]
 
@@ -110,6 +133,16 @@ position = Vector2(216, 192)
 [node name="UI" parent="." instance=ExtResource("4_wlu0f")]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "chaos"
+method_call_mode = 1
+movie_quit_on_finish = true
+libraries = {
+"": SubResource("AnimationLibrary_l538o")
+}
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_1cma0")
+autoplay = true
 
 [connection signal="P1Hit" from="Ball" to="UI" method="P1Hit"]
 [connection signal="P2Hit" from="Ball" to="UI" method="P2Hit"]
