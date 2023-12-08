@@ -5,10 +5,10 @@
 
 [sub_resource type="PhysicsMaterial" id="1"]
 friction = 0.5
-bounce = 1.0
+bounce = 0.5
 
 [sub_resource type="CircleShape2D" id="2"]
-radius = 37.1452
+radius = 32.0
 
 [node name="Ball" type="RigidBody2D"]
 collision_mask = 5
@@ -18,11 +18,11 @@ gravity_scale = 0.5
 script = ExtResource("1_ptjqw")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.16, 0.16)
+scale = Vector2(0.21, 0.21)
 texture = ExtResource("1_vmrnp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(1.5, 1.5)
 shape = SubResource("2")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
-[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
