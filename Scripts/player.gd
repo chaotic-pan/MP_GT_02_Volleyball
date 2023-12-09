@@ -3,20 +3,23 @@ extends CharacterBody2D
 @export var speed =  800
 @export var fall_acceleration = 75
 @export var player = 1
-var p;
+var p
 var screen_size
 var jump
-var jumpTimer = 0
+var jumpTimer
+var start
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	start = false
+	jumpTimer = 0
 	screen_size = get_viewport_rect().size
 	match player:
 		1: 
-			startPos(Vector2(230,480))
+			startPos(Vector2(230,530))
 			p="P1"
 		2: 
-			startPos(Vector2(900,480))
+			startPos(Vector2(900,530))
 			p="P2"
 	$AnimatedSprite2D.play(p+"_stand")
 
@@ -44,6 +47,8 @@ func get_input():
 	velocity = velocity.normalized() * speed
 
 func _physics_process(delta):
+	if !start:
+		return
 	if jump:
 		jumpTimer-=delta
 	get_input()
@@ -53,3 +58,7 @@ func _physics_process(delta):
 func startPos(pos):
 	position = pos
 	show()
+
+
+func onStart():
+	start = true
