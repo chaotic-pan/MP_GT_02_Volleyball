@@ -15,6 +15,7 @@ collision_mask = 5
 mass = 0.1
 physics_material_override = SubResource("1")
 gravity_scale = 0.5
+can_sleep = false
 script = ExtResource("1_x685h")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

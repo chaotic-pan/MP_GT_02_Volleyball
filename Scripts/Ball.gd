@@ -17,16 +17,19 @@ func _ready():
 			$CollisionShape2D.scale = Vector2(1,1)
 			physics_material_override.bounce=0.5
 			gravity_scale=0.2
+			$Sprite2D.texture = load("res://Assets/Volleyball1.png")
 		BallType.BIG: 
 			$Sprite2D.scale = Vector2(0.21,0.21)
 			$CollisionShape2D.scale = Vector2(1.5,1.5)
 			physics_material_override.bounce=0.5
 			gravity_scale=0.5
+			$Sprite2D.texture = load("res://Assets/Volleyball3.png")
 		BallType.BOUNCE: 
 			$Sprite2D.scale = Vector2(0.14,0.14)
 			$CollisionShape2D.scale = Vector2(1,1)
 			physics_material_override.bounce=1
 			gravity_scale=0.5
+			$Sprite2D.texture = load("res://Assets/Volleyball2.png")
 
 func _integrate_forces(state):
 	# setting the position of rigid bodies is fucked up
